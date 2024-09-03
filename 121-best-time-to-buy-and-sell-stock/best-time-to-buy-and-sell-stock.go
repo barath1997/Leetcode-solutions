@@ -11,7 +11,8 @@ func maxProfit(prices []int) int {
         if prices[i] < minPrice {
             minPrice = prices[i]
         } else {
-            maxProfit = max(maxProfit,prices[i]-minPrice)
+            profit := prices[i] - minPrice
+            if profit > maxProfit { maxProfit = profit }
         }
     }
      
