@@ -29,7 +29,7 @@ func majorityElement(nums []int) []int {
     }
 
     // Add those numbers if they satisfy conditions
-    res := []int{}
+     res := []int{}
     if count1 > len(nums) / 3 {
         res = append(res, num1)
     }
