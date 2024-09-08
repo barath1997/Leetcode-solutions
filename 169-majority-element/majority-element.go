@@ -7,14 +7,9 @@ func majorityElement(nums []int) int {
 
    for _,val := range nums {
     counts[val]++
+    if c , _ := counts[val]; c>n/2 { return val}
    }
-
-   for val,c := range counts {
-    if c > n/2 {
-        return val
-    }
-   }
-    
+ 
     return -1
 
 }
