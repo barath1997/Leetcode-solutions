@@ -3,18 +3,18 @@ func majorityElement(nums []int) int {
     if n == 1 {return nums[0]}
     
     // moore's best voting algorithm
-    majorityElem := nums[0]
-    count := 1
-    
-    for i:=1;i<n;i++ {
-        if count == 0 {majorityElem = nums[i]}
-        if nums[i] == majorityElem {
-            count++
-        } else {count--}
+   counts := make(map[int]int,n)
 
-        
+   for _,val := range nums {
+    counts[val]++
+   }
+
+   for val,c := range counts {
+    if c > n/2 {
+        return val
     }
+   }
     
-    return majorityElem
+    return -1
 
 }
