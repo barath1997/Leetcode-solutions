@@ -1,7 +1,7 @@
 func merge(nums1 []int, m int, nums2 []int, n int)  []int{
      
 	i , j := 0,0
-	for j<n && i < len(nums1){
+	for j<n && i < m+n{
 	   if nums1[i] == nums2[j] {
 		   insert(nums1,i,nums2[j])
 		   i++;j++
@@ -12,7 +12,7 @@ func merge(nums1 []int, m int, nums2 []int, n int)  []int{
 	}
 
 	if j < n {
-	   b := len(nums1) - 1
+	   b := (m+n) - 1
 	   for k := n-1;k>=j;k-- {
 		   nums1[b] = nums2[k]
 		   b--
