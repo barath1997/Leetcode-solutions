@@ -9,11 +9,7 @@ func kidsWithCandies(candies []int, extraCandies int) []bool {
     }
 
     for idx,v := range candies {
-        if v+extraCandies >= maximum {
-            result[idx] = true
-        } else {
-            result[idx] = false
-        }
+            result[idx] = v+extraCandies >= maximum
     }
 
     return result
