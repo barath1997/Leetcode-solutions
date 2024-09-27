@@ -21,13 +21,15 @@ func findContentChildren(g []int, s []int) int {
 	return satisfiedChildren*/
 
     // optimised solution : 
-    sort.Ints(g); sort.Ints(s)
-
+    slices.Sort(g); slices.Sort(s)
     child := 0
-    for cookieSize := 0;cookieSize < len(s) && child < len(g);cookieSize++ {
+    cookieSize := 0
+    totalChildren,totalCookies := len(g),len(s)
+    for cookieSize < totalCookies && child < totalChildren {
          if s[cookieSize] >= g[child] {
             child++
          }
+         cookieSize++
     }
     return child
 }
