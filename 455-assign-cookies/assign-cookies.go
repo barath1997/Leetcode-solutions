@@ -1,6 +1,6 @@
 func findContentChildren(g []int, s []int) int {
     // brute force solution
-    sort.Ints(g)
+    /*sort.Ints(g)
     sort.Ints(s)
     gn := len(g)
     satisfiedChildren := 0
@@ -18,5 +18,17 @@ func findContentChildren(g []int, s []int) int {
         }
     }
 
-	return satisfiedChildren
+	return satisfiedChildren*/
+
+    // optimised solution : 
+    sort.Ints(g); sort.Ints(s)
+
+    child := 0
+    for cookieSize := 0;cookieSize < len(s) && child < len(g);cookieSize++ {
+         if s[cookieSize] >= g[child] {
+            child++
+         }
+    }
+    return child
 }
+
