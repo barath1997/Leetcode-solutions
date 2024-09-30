@@ -23,12 +23,13 @@ func singleNumber(nums []int) []int {
       for _,v := range nums {
         xoredValue^=v
       }
-
-      val := (xoredValue & (xoredValue-1)) ^ xoredValue
+      
+      var val int32
+      val = int32((xoredValue & (xoredValue-1)) ^ xoredValue)
 
       bucket1,bucket2 := 0,0
       for _,v := range nums {
-        if v & val == 0  {
+        if v & int(val) == 0  {
             bucket1 ^= v
         } else {
             bucket2 ^= v
