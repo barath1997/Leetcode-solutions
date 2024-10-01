@@ -1,3 +1,4 @@
+// reference : https://www.youtube.com/watch?v=cgPqbpcIgoc
 func multiply(num1 string, num2 string) string {
 
 	s1, s2 := reverseString(num1), reverseString(num2)
