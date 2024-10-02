@@ -1,8 +1,16 @@
 func singleNumber(nums []int) int {
-    
-    
+     // optimised solution
     n := len(nums)
-    // brute force solution
+    res := nums[0]
+    for i:=1;i<n;i++ {
+        res ^= nums[i]
+    }
+    
+    return res
+
+}
+
+ // brute force solution
     /*m := make(map[int]int,n)
 
     for _,v := range nums {
@@ -15,13 +23,3 @@ func singleNumber(nums []int) int {
         }
     }
     return 0*/
-
-    // optimised solution
-    res := nums[0]
-    for i:=1;i<n;i++ {
-        res ^= nums[i]
-    }
-    
-    return res
-
-}
