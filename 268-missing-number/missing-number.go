@@ -33,8 +33,8 @@ func missingNumber(nums []int) int {
     // more optimised using bit manipulation and xor
     result := 0 ; i := 0
     for i=0;i<len(nums);i++ {
-        result = result ^ i ^ nums[i]
+        result = result ^ i ^ nums[i] // the delta xor of existing number with the index becomes zero, whereas for the number that does not exist it keeps remaining. 
     }
 
-    return result ^ i
+    return result ^ i // this we do so that say len(nums) = 3 , then the loop does xor till the len - 1 (i.e 2) only. but the range of numbers is from [0,n] so we do a xor of the last number i.e n.
 }
