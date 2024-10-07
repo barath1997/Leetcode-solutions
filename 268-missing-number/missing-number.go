@@ -20,7 +20,7 @@ func missingNumber(nums []int) int {
     return expectedSum - sum*/
 
     // using bit maniluation
-    sort.Ints(nums)
+    /*sort.Ints(nums)
     noOfIterations := nums[len(nums)-1] - nums[0] + 1
     for i:=0;i<noOfIterations;i++ {
         if i ^ nums[i] != 0 {
@@ -28,4 +28,13 @@ func missingNumber(nums []int) int {
         }
     }
     return noOfIterations
+    */
+
+    // more optimised using bit manipulation and xor
+    result := 0 ; i := 0
+    for i=0;i<len(nums);i++ {
+        result = result ^ i ^ nums[i]
+    }
+
+    return result ^ i
 }
