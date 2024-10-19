@@ -1,5 +1,3 @@
-
-
 func isAnagram(s string, t string) bool {
 
     if len(s) != len(t) {return false}
@@ -20,5 +18,8 @@ func isAnagram(s string, t string) bool {
 	}
 
 	return true
+
+    // second solution is based on sorting
+    // we sort the string and compare them.
 
 }
