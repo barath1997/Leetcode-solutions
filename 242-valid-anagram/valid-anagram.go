@@ -1,6 +1,6 @@
 func isAnagram(s string, t string) bool {
 
-	stMap := make(map[rune]int, 0)
+	stMap := make(map[rune]int, len(s))
 
 	for _, v := range s {
 		stMap[v]++
