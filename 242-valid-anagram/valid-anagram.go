@@ -1,4 +1,9 @@
+
+
 func isAnagram(s string, t string) bool {
+
+    if len(s) != len(t) {return false}
+    if s == t {return true}
 
 	stMap := make(map[rune]int, len(s))
 
@@ -13,12 +18,6 @@ func isAnagram(s string, t string) bool {
 			return false
 		}
 	}
-
-    for _,v := range stMap {
-        if v > 0 {
-            return false
-        }
-    }
 
 	return true
 
