@@ -1,4 +1,27 @@
 func isAnagram(s string, t string) bool {
+  
+      if len(s) != len(t) {return false}
+    if s == t {return true}
+
+	stMap := make(map[string]int, len(s))
+
+    for i:=0;i<len(s);i++ {
+        stMap[string(s[i])]++
+        stMap[string(t[i])]--
+    }
+
+    for _,v := range stMap {
+        if v != 0 {
+            return false
+        }
+    }
+
+    return true
+
+}
+
+
+/*func isAnagram(s string, t string) bool {
 
     if len(s) != len(t) {return false}
     if s == t {return true}
@@ -22,4 +45,4 @@ func isAnagram(s string, t string) bool {
     // second solution is based on sorting
     // we sort the string and compare them.
 
-}
+}*/
