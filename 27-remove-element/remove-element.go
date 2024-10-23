@@ -1,4 +1,36 @@
 func removeElement(nums []int, val int) int {
+ 
+ // using 2 pointers
+ start,end := 0,len(nums)-1
+
+ for start<=end {
+    if nums[start] == val && nums[end] != val {
+        temp := nums[start]
+        nums[start] = nums[end]
+        nums[end] = temp
+        start++;end--
+    } else if nums[start] != val && nums[end] == val {
+        start++;end--
+    } else if nums[start] == val && nums[end] == val {
+        end--
+    } else {
+        start++
+    }
+ }
+
+ count := 0
+
+ for _,v := range nums {
+    if v != val {
+        count++
+    }
+ }
+
+ return count
+
+}
+
+/*func removeElement(nums []int, val int) int {
 
 	count := 0
 
@@ -26,7 +58,7 @@ func removeElement(nums []int, val int) int {
     }
     
     return count
-}
+}*/
 
 func leftShift(arr []int,leftIdx int) {
     for i:=leftIdx;i<len(arr)-1;i++ {
