@@ -1,37 +1,35 @@
+func isAlphanumeric(c byte) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
 func isPalindrome(s string) bool {
-    for _,c := range s {
-		if val := c ; !check(int(val)) {
-          s = strings.ReplaceAll(s,string(c),"")
-		} 
-	}
-
-	s = strings.ToLower(s)
-	
-	return validPalindrome(s)
-}
-
-func check(char int) bool {
-	if char >= 97 && char <= 122 {
-		return true
-	} else if char >= 65 && char <= 90 {
-		return true
-	} else if char >= 48 && char <= 57 {
+	if len(s) <= 1 {
 		return true
 	}
-	return false
-}
 
-func validPalindrome(s string) bool {
+	i := 0
+	j := len(s) - 1
 
-     begin := 0
-	 end := len(s)-1
+	for i < j {
+		for i < j && !isAlphanumeric(s[i]) {
+			i++
+		}
 
-	 for begin <= end {
-		if s[begin] != s[end] {
+		for i < j && !isAlphanumeric(s[j]) {
+			j--
+		}
+
+		if i >= j {
+			return true
+		}
+
+		if i < j && strings.ToLower(string(s[i])) != strings.ToLower(string(s[j])) {
 			return false
 		}
-		begin++;end--
-	 }
 
-	 return true
+		i++
+		j--
+	}
+
+	return true
 }
