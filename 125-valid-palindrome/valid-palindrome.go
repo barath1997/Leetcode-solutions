@@ -11,24 +11,16 @@ func isPalindrome(s string) bool {
 	j := len(s) - 1
 
 	for i < j {
-		for i < j && !isAlphanumeric(s[i]) {
+		if !isAlphanumeric(s[i]) {
 			i++
-		}
-
-		for i < j && !isAlphanumeric(s[j]) {
+		} else if !isAlphanumeric(s[j]) {
+			j--
+		} else if strings.ToLower(string(s[i])) != strings.ToLower(string(s[j])) {
+			return false
+		} else {
+			i++
 			j--
 		}
-
-		if i >= j {
-			return true
-		}
-
-		if i < j && strings.ToLower(string(s[i])) != strings.ToLower(string(s[j])) {
-			return false
-		}
-
-		i++
-		j--
 	}
 
 	return true
