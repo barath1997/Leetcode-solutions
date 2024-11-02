@@ -1,5 +1,30 @@
-// using sorting , found from solutions
+//
 func groupAnagrams(strs []string) [][]string {
+	if len(strs) == 1 {
+	   return [][]string{[]string{strs[0]}}
+	}
+
+    anagramGroupsMap := make(map[string][]string, 0)
+    result := make([][]string,0)
+    for _,v := range strs {
+        b := []byte(v)
+        slices.Sort(b)
+        sortedStr := string(b)
+
+        anagram := anagramGroupsMap[sortedStr]
+        anagram = append(anagram,v)
+        anagramGroupsMap[sortedStr] = anagram
+    }
+
+    for _,groups := range anagramGroupsMap {
+        result = append(result,groups)
+    }
+    
+    return result
+}
+
+// using sorting , found from solutions, TC : O(n *k *log(k))
+/*func groupAnagrams(strs []string) [][]string {
 
 	m := make(map[string][]string, 0)
 	result := make([][]string, 0)
@@ -19,7 +44,7 @@ func groupAnagrams(strs []string) [][]string {
 	}
 
 	return result
-}
+}*/
 
 // TC : O(N2 * K)
 /*func groupAnagrams(strs []string) [][]string {
