@@ -1,24 +1,31 @@
 // using sorting , found from solutions
 func groupAnagrams(strs []string) [][]string {
+	anagramMap := make(map[string][]string)
 
-	m := make(map[string][]string, 0)
-	result := make([][]string, 0)
-	for _, v := range strs {
-		s := strings.Split(v, "")
-		sort.Strings(s)
-		s1 := strings.Join(s, "")
-		if _, ok := m[s1]; ok {
-			m[s1] = append(m[s1], v)
+	for _, word := range strs {
+		sortedWord := sortString(word)
+
+		if group, found := anagramMap[sortedWord]; found {
+			anagramMap[sortedWord] = append(group, word)
 		} else {
-			m[s1] = []string{v}
+			anagramMap[sortedWord] = []string{word}
 		}
 	}
 
-	for _, val := range m {
-		result = append(result, val)
+	var result [][]string
+	for _, group := range anagramMap {
+		result = append(result, group)
 	}
 
 	return result
+}
+
+func sortString(s string) string {
+	characters := []rune(s)
+	sort.Slice(characters, func(i, j int) bool {
+		return characters[i] < characters[j]
+	})
+	return string(characters)
 }
 
 // TC : O(N2 * K)
