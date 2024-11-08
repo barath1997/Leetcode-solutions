@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/min-stack/solutions/5028874/very-simple-golang-solution-o-1-time/
 type MinStack struct {
 
     s []int
