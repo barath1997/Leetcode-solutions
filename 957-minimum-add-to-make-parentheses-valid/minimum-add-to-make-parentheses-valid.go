@@ -1,4 +1,23 @@
+// without using stack
 func minAddToMakeValid(s string) int {
+    open,close := 0,0
+
+    for _,v := range s {
+        val := string(v)
+
+        if val == "(" {
+            close++
+        } else if close > 0 {
+            close--
+        } else {
+            open++
+        }
+    } 
+    
+    return open + close
+}
+
+/*func minAddToMakeValid(s string) int {
     
 	openCount,closeCount := 0,0
 	var stack Stack
@@ -52,4 +71,4 @@ func minAddToMakeValid(s string) int {
 		 return (*s)[len(*s)-1], true
 	 }
 	 return "", false
- }
+ }*/
