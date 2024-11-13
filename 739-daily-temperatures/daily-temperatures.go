@@ -1,23 +1,50 @@
 func dailyTemperatures(temperatures []int) []int {
-    n := len(temperatures)
-    var stack Stack
-    result := make([]int,n)
-    for i:=n-1;i>=0;i-- {
-		idx := stack.Peek()
-        for !stack.IsEmpty() && temperatures[idx] <= temperatures[i] {
-            stack.Pop()
-            idx = stack.Peek()
-        }
-        if stack.IsEmpty() {
-            result[i] = 0
-        } else {
-            result[i] = stack.Peek() - i
-        }
-        stack.Push(i)
-    }
 
-    return result
+  n := len(temperatures)
+  if n == 1 {return []int{0}}
+  var stack Stack
+  result := make([]int,n)
+
+  for i:=0;i<n;i++ {
+    result[i] = 0
+  }
+
+  for i:=n-1;i>=0;i-- {
+
+     for !stack.IsEmpty() && temperatures[stack.Peek()] <= temperatures[i] {
+        stack.Pop()
+     }
+
+     if !stack.IsEmpty() {
+        result[i] = stack.Peek() - i
+     } 
+
+     stack.Push(i)
+  }
+
+  return result 
 }
+
+// func dailyTemperatures(temperatures []int) []int {
+//     n := len(temperatures)
+//     var stack Stack
+//     result := make([]int,n)
+//     for i:=n-1;i>=0;i-- {
+// 		idx := stack.Peek()
+//         for !stack.IsEmpty() && temperatures[idx] <= temperatures[i] {
+//             stack.Pop()
+//             idx = stack.Peek()
+//         }
+//         if stack.IsEmpty() {
+//             result[i] = 0
+//         } else {
+//             result[i] = stack.Peek() - i
+//         }
+//         stack.Push(i)
+//     }
+
+//     return result
+// }
 
 type Stack []int
 
