@@ -6,8 +6,29 @@
  * }
  */
 
+ // Optimised TC : O(N/2) , SC : O(1)
+ func reverseList(head *ListNode) *ListNode {
+
+    if head == nil {return head}
+
+    var prev *ListNode = nil
+    var next *ListNode = nil
+    var curr *ListNode = head
+
+    for curr != nil {
+        next = curr.Next
+        curr.Next = prev
+        
+        prev = curr
+        curr = next
+    }
+
+    head = prev
+    return head
+ }
+
  // TC : O(2N) , SC : O(N)  stack based solution
-func reverseList(head *ListNode) *ListNode {
+/*func reverseList(head *ListNode) *ListNode {
 
 	if head == nil || head.Next == nil {return head}
  
@@ -58,4 +79,4 @@ func reverseList(head *ListNode) *ListNode {
 	 }
 	 return nil
  
- }
+ }*/
