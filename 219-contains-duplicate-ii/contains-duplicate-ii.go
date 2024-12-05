@@ -8,6 +8,7 @@ func containsNearbyDuplicate(nums []int, k int) bool {
             if math.Abs(float64(v-idx)) <= float64(k) {
                 return true
             }
+            maps[val] = idx
         }
         maps[val] = idx
     }
