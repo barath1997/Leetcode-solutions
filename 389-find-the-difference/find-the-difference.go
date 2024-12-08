@@ -1,4 +1,21 @@
+// USING XOR OPERATOR
 func findTheDifference(s string, t string) byte {
+    
+    var result rune
+	for _,v := range s {
+		result = result ^ v
+	}
+
+	for _,v := range t {
+		result = result ^ v
+	}
+
+    return []byte(string(result))[0]
+
+}
+
+// TC : O(2N) , SC : O(N)
+/*func findTheDifference(s string, t string) byte {
 
 	if s == "" {
 		return []byte(t)[0]
@@ -21,4 +38,4 @@ func findTheDifference(s string, t string) byte {
 	}
 
 	return []byte("")[0]
-}
+}*/
