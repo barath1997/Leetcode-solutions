@@ -6,8 +6,14 @@ func mostCommonWord(paragraph string, banned []string) string {
 
     wordFreq := make(map[string]int)
 
+    bannedList := make(map[string]bool,len(banned))
+
+    for _,v := range banned {
+        bannedList[strings.ToLower(string(v))] = true
+    }
+
     for _,v := range para {
-      if checkBannedWord(v,banned) ||  checkWordIsPunctuation(string(v)) {
+      if bannedList[strings.ToLower(string(v))] ||  checkWordIsPunctuation(string(v)) {
          continue
       }
       wordFreq[strings.ToLower(v)]++
