@@ -5,6 +5,9 @@
  *     Next *ListNode
  * }
  */
+
+// TC : O(N) , SC : O(N) refer "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/solutions/366350/c-o-n-explained-with-pictures/"
+
 func removeZeroSumSublists(head *ListNode) *ListNode {
 
 	prefixLinkedListMap := make(map[int]*ListNode)
