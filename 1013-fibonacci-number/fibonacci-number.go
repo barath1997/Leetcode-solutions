@@ -1,5 +1,14 @@
-// using DP
+// usin maths
 func fib(n int) int {
+  
+  phi := float64((math.Sqrt(5) + 1) / 2)
+
+  return int(math.Round((math.Pow(phi,float64(n)) / math.Sqrt(5))))
+
+} 
+
+// using DP
+/*func fib(n int) int {
 
    if n ==0 {return 0} 
    
@@ -13,7 +22,7 @@ func fib(n int) int {
    } 
    
    return res[n]
-}
+}*/
 
 // using iterative approach
 /*func fib(n int) int {
