@@ -7,6 +7,7 @@
  * }
  */
 
+// Discussed in class refer 11 JAN 2025 CLASS NOTES
 func maxDepth(root *TreeNode) int {
     if root == nil {return 0}
 
